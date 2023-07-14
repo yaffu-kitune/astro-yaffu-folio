@@ -10,25 +10,25 @@ import { Image } from "@astrojs/image/components";
 ---
 
 <!DOCTYPE html>
-<html class="theme-bubblegum" lang="en">
+<html class="themes" lang="en">
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
         <ThemeScript />
     </head>
     <div>
-        <div class="max-w-2xl mx-auto px-6 sm:px-8 unit">
+        <div class="max-w-3xl mx-auto px-6 sm:px-8 unit">
             <Header />
         </div>
-        <div class="container max-w-lg mx-16">
+        <div class="container max-w-4xl m-auto grid gap-x-44 grid-cols-2">
             <div>
                 <Image
                     src={AboutIcon}
                     alt="About Icon"
-                    class="scale-75 rounded-full border-2 dark:border-sky-400 bg-slate-400 bg-opacity-10"
+                    class="rounded-full border-2 border- dark:border-sky-400 bg-blue-800 bg-opacity-20"
                 />
             </div>
             <div>
-                aaa
+                <h1 class="mt-16">Hello World Yaffuです。</h1>
             </div>
         </div>
         <div class="max-w-3xl mx-auto px-6 sm:px-8 unit">
@@ -38,11 +38,11 @@ import { Image } from "@astrojs/image/components";
     <style>
         .unit {
             display: grid;
-
             grid-template-areas:
                 "header"
                 "footer";
-            grid-template-rows: 5rem minmax(0, 1fr);
+            grid-template-rows: 5rem minmax(0, 1fr) 3rem;
+            grid-template-columns: minmax(0, 1fr);
         }
     </style>
 </html>

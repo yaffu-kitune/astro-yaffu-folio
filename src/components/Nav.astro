@@ -13,7 +13,7 @@ import { Icon } from 'astro-icon';
       id="mobile-menu"
       class="hide-menu fixed top-0 left-0 z-10 w-full h-full transition-transform bg-black/75 border-primary-blue"
     >
-      <div class="bg-bg-body h-full drop-shadow-2xl ">
+      <div class="bg-bg-body h-full drop-shadow-2xl opacity-50">
         <div class="bodys">
           <button
             id="mobile-menu-close"
@@ -54,7 +54,8 @@ import { Icon } from 'astro-icon';
 <style>
   .bodys {
     margin: auto;
-    max-width: 75ch;
+    max-width: 85ch;
+
   }
   .hide-menu {
     transform: translateY(-100%);
