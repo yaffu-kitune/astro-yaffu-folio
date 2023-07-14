@@ -1,39 +1,42 @@
 ---
-import Layout from '~/layouts/BaseLayout.astro';
-import Header from '~/components/widgets/Header.astro';
-import Footer from '~/components/widgets/Footer.astro';
-import { headerData, footerData } from '~/data';
-
-import { MetaSEO } from '~/types';
-
-export interface Props {
-  meta?: MetaSEO;
-}
-
-const { meta } = Astro.props;
+import "../styles/global.css";
+import ThemeScript from "./ThemeScript.astro";
+import Favicon from "./Favicon.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<Layout {meta}>
-  <slot name="header">
-    <Header
-      {...headerData}
-      actions={[
-        {
-          type: "ghost",
-          text: '🛒Shop  →',
-          href: '#',
-        },
-      ]}
-      isSticky
-      showRssFeed
-      showToggleTheme
-      position='center'
-    />
-    </slot>
-  <main>
-    <slot />
-  </main>
-  <slot name="footer">
-    <Footer {...footerData} />
-  </slot>
-</Layout>
+<!DOCTYPE html>
+<html class="theme-bubblegum" lang="ja">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <Favicon />
+    <ThemeScript />
+  </head>
+
+  <body
+    class="max-w-3xl mx-auto min-h-screen px-6 sm:px-8"
+  >
+    <Header/>
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <style>
+      body {
+        display: grid;
+        grid-template-areas:
+          "header"
+          "main"
+          "footer";
+        grid-template-rows: 5rem minmax(0, 1fr) 5rem;
+        grid-template-columns: minmax(0, 1fr);
+      }
+      main {
+        grid-area: main;
+      }
+    </style>
+  </body>
+</html>

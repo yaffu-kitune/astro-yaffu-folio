@@ -1,0 +1,43 @@
+---
+import Nav from "./Nav.astro";
+import DarkModeToggle from "./DarkModeToggle.astro";
+import { Icon } from 'astro-icon';
+---
+
+<header class="sticky top-0">
+  <a
+    class="unset absolute z-10 left-[50%] -top-[100rem] translate-x-[-50%] bg-white text-black px-8 py-2 focus:top-[initial]"
+    href="#main"
+  >
+    Skip to content
+  </a>
+  <Nav />
+  <div
+    class="justify-self-end py-2 flex items-center content-center text-text-bold"
+  >
+    <a
+      class="unset ml-4 rounded-sm transition-[background-size] duration-150 ease-in-out bg-left-bottom bg-[length:0%_15%] hover:bg-[length:100%_15%] bg-no-repeat bg-gradient-to-r from-primary-yellow to-primary-yellow dark:bg-none dark:hover:text-primary-yellow"
+      href="https://github.com/yaffu-kitune"
+    >
+      <Icon name="ri:github-line" aria-label="Github" class="w-8 h-8" >
+    </a>
+    <a
+      class="unset ml-4 rounded-sm transition-[background-size] duration-150 bg-left-bottom bg-[length:0%_15%] hover:bg-[length:100%_15%] bg-no-repeat bg-gradient-to-r from-primary-blue to-primary-blue dark:bg-none dark:hover:text-primary-blue"
+      href="https://twitter.com/Yaffu_tanuki/"
+    >
+      <Icon name="logos:twitter" aria-label="Twitter" class="w-8 h-8" >
+    </a>
+  </div>
+  <DarkModeToggle />
+</header>
+<style>
+  header {
+    grid-area: header;
+    display: grid;
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, max-content) minmax(
+        0,
+        max-content
+      );
+  }
+</style>

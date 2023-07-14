@@ -1,0 +1,66 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { Icon } from 'astro-icon';
+---
+
+<Fragment>
+  <nav>
+    <button id="mobile-menu-open">
+      <Icon name="ant-design:bars-outlined" aria-label="メニューを開く" class="w-6 h-6 text-blue-800" id="icons"/>
+
+    </button>
+    <section
+      id="mobile-menu"
+      class="hide-menu fixed top-0 left-0 z-10 w-full h-full transition-transform bg-black/75 border-primary-blue"
+    >
+      <div class="bg-bg-body h-full drop-shadow-2xl opacity-70">
+        <div class="bodys">
+          <button
+            id="mobile-menu-close"
+            class="px-8 h-[5rem] text-lg xml-[1px]"
+          >
+            <Icon name="lucide:x" aria-label="メニューを閉じる" class="w-6 h-6 text-blue-800"/>
+          </button>
+          <ul class="unset flex flex-col text-text-bold gap-4 [&>li]:p-0 px-6">
+            <li><HeaderLink href="/">Home</HeaderLink></li>
+            <li><HeaderLink href="/blog">Blog</HeaderLink></li>
+            <li><HeaderLink href="/projects">Projects</HeaderLink></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </nav>
+</Fragment>
+
+<script>
+  // @ts-nocheck
+  document.querySelector("#mobile-menu-open").addEventListener("click", () => {
+    const menuElem = document.querySelector("#mobile-menu");
+    menuElem.classList.remove("hide-menu");
+    menuElem.classList.add("show-menu");
+    document.querySelector("#icons")?.classList.add("hidden");
+    document.body.style.overflow = "hidden";
+  });
+
+  document.querySelector("#mobile-menu-close").addEventListener("click", () => {
+    const menuElem = document.querySelector("#mobile-menu");
+    menuElem.classList.remove("show-menu");
+    menuElem.classList.add("hide-menu");
+    document.querySelector("#icons")?.classList.remove("hidden");
+    document.body.style.overflow = "auto";
+  });
+</script>
+
+<style>
+  .bodys {
+    margin: auto;
+    max-width: 77.5ch;
+  }
+  .hide-menu {
+    transform: translateY(-100%);
+    
+  }
+  .show-menu {
+    transform: translateY(0%);
+  }
+</style>
